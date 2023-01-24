@@ -1,0 +1,19 @@
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+ repositories {
+    maven { url "https://android-sdk.is.com/" }
+    maven { url "https://artifact.bytedance.com/repository/pangle" }
+    maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}
+    maven { url "https://sdk.tapjoy.com/"}
+}
+
+dependencies {
+    implementation 'com.yandex.android:mobileads-mediation:5.5.0.0'
+    implementation 'com.my.target:mytarget-sdk:5.16.2'
+    //implementation 'com.google.android.exoplayer:exoplayer:2.17.0'
+}
