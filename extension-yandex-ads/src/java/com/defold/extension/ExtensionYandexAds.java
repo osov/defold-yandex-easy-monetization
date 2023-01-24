@@ -494,7 +494,7 @@ public class ExtensionYandexAds {
 		layout.setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
 
 		layout.addView(mBannerAdView, params);
-		layout.setBackgroundColor(Color.RED); // debug
+		layout.setBackgroundColor(Color.BLUE); // debug
 		mBannerAdView.setBackgroundColor(Color.YELLOW); // debug
 
 	}
