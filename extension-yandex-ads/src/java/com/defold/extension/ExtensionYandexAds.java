@@ -295,7 +295,7 @@ public class ExtensionYandexAds {
 				view.setAdSize(AdSize.flexibleSize(w, h));
 				//view.setAdSize(AdSize.stickySize(w));
 				view.setVisibility(View.INVISIBLE); //view.pause();
-				view.setBackgroundColorColor.GREEN); // debug
+				view.setBackgroundColor(Color.GREEN); // debug
 
 				AdRequest adRequest = new AdRequest.Builder().build();
 				view.setBannerAdEventListener(new BannerAdEventListener() {
