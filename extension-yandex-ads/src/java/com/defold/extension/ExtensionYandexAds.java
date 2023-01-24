@@ -91,6 +91,7 @@ public class ExtensionYandexAds {
 						sendSimpleMessage(MSG_ADS_INITED, EVENT_LOADED);
 					}
 				});
+				MobileAds.enableLogging(true); // debug
 			}
 		});
 	}
@@ -485,13 +486,15 @@ public class ExtensionYandexAds {
 		windowManager = activity.getWindowManager();
 		layout = new LinearLayout(activity);
 		layout.setOrientation(LinearLayout.VERTICAL);
-
 		MarginLayoutParams params = new MarginLayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 			LinearLayout.LayoutParams.MATCH_PARENT);
 		params.setMargins(0, 0, 0, 0);
 		layout.setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
 
 		layout.addView(mBannerAdView, params);
+		layout.setBackgroundColor(Color.RED); // debug
+		mBannerAdView.setBackgroundColor(Color.YELLOW); // debug
+
 	}
 
 	private WindowManager.LayoutParams getParameters() {
