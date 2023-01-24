@@ -266,7 +266,7 @@ DM_DECLARE_EXTENSION(EXTENSION_NAME, LIB_NAME, dmYandexAds::AppInitializeApp, dm
 
 static dmExtension::Result InitializeApp(dmExtension::Params *params)
 {
-    dmLogInfo("Registered extension YandexAds (null)");
+    dmLogInfo("Registered extension YandexAds EasyMonetization (null)");
     return dmExtension::RESULT_OK;
 }
 
