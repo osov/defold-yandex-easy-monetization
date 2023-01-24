@@ -42,7 +42,7 @@ import com.yandex.mobile.ads.rewarded.RewardedAdEventListener;
 
 public class ExtensionYandexAds {
 
-	private static final String TAG = "ExtensionYandexAds";
+	private static final String TAG = "ExtensionYandexAdsEasy";
 
 	public static native void AddToQueue(int msg, String json);
 
