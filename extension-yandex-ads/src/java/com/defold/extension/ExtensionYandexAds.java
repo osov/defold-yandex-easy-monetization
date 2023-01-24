@@ -292,9 +292,10 @@ public class ExtensionYandexAds {
 
 				final BannerAdView view = new BannerAdView(activity);
 				view.setAdUnitId(unitId);
-				//view.setAdSize(AdSize.flexibleSize(w, h));
-				view.setAdSize(AdSize.stickySize(w));
+				view.setAdSize(AdSize.flexibleSize(w, h));
+				//view.setAdSize(AdSize.stickySize(w));
 				view.setVisibility(View.INVISIBLE); //view.pause();
+				view.setBackgroundColorColor.GREEN); // debug
 
 				AdRequest adRequest = new AdRequest.Builder().build();
 				view.setBannerAdEventListener(new BannerAdEventListener() {
