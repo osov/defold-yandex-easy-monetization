@@ -21,6 +21,7 @@ import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.util.DisplayMetrics;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -91,7 +92,7 @@ public class ExtensionYandexAds {
 						sendSimpleMessage(MSG_ADS_INITED, EVENT_LOADED);
 					}
 				});
-				MobileAds.enableLogging(true); // debug
+				//MobileAds.enableLogging(true);
 			}
 		});
 	}
@@ -295,7 +296,7 @@ public class ExtensionYandexAds {
 				view.setAdSize(AdSize.flexibleSize(w, h));
 				//view.setAdSize(AdSize.stickySize(w));
 				view.setVisibility(View.INVISIBLE); //view.pause();
-				view.setBackgroundColor(Color.GREEN); // debug
+				//view.setBackgroundColor(Color.GREEN); // debug
 
 				AdRequest adRequest = new AdRequest.Builder().build();
 				view.setBannerAdEventListener(new BannerAdEventListener() {
@@ -494,8 +495,8 @@ public class ExtensionYandexAds {
 		layout.setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
 
 		layout.addView(mBannerAdView, params);
-		layout.setBackgroundColor(Color.BLUE); // debug
-		mBannerAdView.setBackgroundColor(Color.YELLOW); // debug
+		//layout.setBackgroundColor(Color.BLUE); // debug
+		//mBannerAdView.setBackgroundColor(Color.YELLOW); // debug
 
 	}
 
@@ -503,13 +504,18 @@ public class ExtensionYandexAds {
 		WindowManager.LayoutParams windowParams = new WindowManager.LayoutParams();
 		windowParams.x = WindowManager.LayoutParams.WRAP_CONTENT;
 		windowParams.y = WindowManager.LayoutParams.WRAP_CONTENT;
-		windowParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
-		windowParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+		windowParams.width = dpToPx(320);//WindowManager.LayoutParams.WRAP_CONTENT;
+		windowParams.height = dpToPx(50); //WindowManager.LayoutParams.WRAP_CONTENT;
 		windowParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
 		WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
 		windowParams.gravity = m_bannerPosition;
 		return windowParams;
 	}
+
+	 public int dpToPx(int dp) {
+        return (int) (dp * ((float) activity.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT));
+
+    }
 
 // ------------------------------------------------------------------------------------------
 
