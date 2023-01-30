@@ -16,7 +16,7 @@ dependencies {
     //implementation 'com.yandex.android:mobileads-mediation:5.5.0.0'
     implementation 'com.yandex.android:mobileads:5.5.0'
     implementation 'com.yandex.ads.mediation:mobileads-admob:21.3.0.0'
-    implementation 'com.yandex.ads.mediation:mobileads-unityads::4.4.1.0'
+    implementation 'com.yandex.ads.mediation:mobileads-unityads:4.4.1.0'
     implementation 'com.yandex.ads.mediation:mobileads-applovin:11.6.0.0'
     implementation 'com.yandex.ads.mediation:mobileads-ironsource:7.2.4.1'
     implementation 'com.yandex.ads.mediation:mobileads-mintegral:16.3.11.0'
