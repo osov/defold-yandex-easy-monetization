@@ -104,61 +104,67 @@ public class ExtensionYandexAds {
 	}
 
 // ------------------------------------------------------------------------------------------
-
+	private String lastInterstitialId = "";
 	public void loadInterstitial(final String unitId) {
 		activity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
 				Log.d(TAG, "loadInterstitial");
-				mInterstitialAd = new InterstitialAd(activity);
-				mInterstitialAd.setAdUnitId(unitId);
+				// если разные ид объявлений
+				if (!lastInterstitialId.equals(unitId)){
+					lastInterstitialId = unitId;
+					if (mInterstitialAd != null)
+						mInterstitialAd.destroy();
+					mInterstitialAd = null;
+					mInterstitialAd = new InterstitialAd(activity);
+					mInterstitialAd.setAdUnitId(unitId);
+
+					mInterstitialAd.setInterstitialAdEventListener(new InterstitialAdEventListener() {
+						@Override
+						public void onAdLoaded() {
+							Log.d(TAG, "interstitial:onAdLoaded");
+							sendSimpleMessage(MSG_INTERSTITIAL, EVENT_LOADED);
+						}
+
+						@Override
+						public void onAdFailedToLoad(AdRequestError adRequestError) {
+							Log.e(TAG, "interstitial:onAdFailedToLoad" + adRequestError.toString());
+							sendSimpleMessage(MSG_INTERSTITIAL, EVENT_ERROR_LOAD, "error", adRequestError.toString());
+						}
+
+						@Override
+						public void onAdShown() {
+							Log.d(TAG, "interstitial:onAdShown");
+							sendSimpleMessage(MSG_INTERSTITIAL, EVENT_SHOWN);
+						}
+
+						@Override
+						public void onAdDismissed() {
+							Log.d(TAG, "interstitial:onAdDismissed");
+							sendSimpleMessage(MSG_INTERSTITIAL, EVENT_DISMISSED);
+						}
+
+						@Override
+						public void onAdClicked() {
+							Log.d(TAG, "interstitial:onAdClicked");
+							sendSimpleMessage(MSG_INTERSTITIAL, EVENT_CLICKED);
+						}
+
+						@Override
+						public void onImpression(@Nullable ImpressionData impressionData) {
+							Log.d(TAG, "interstitial:onImpression");
+							sendSimpleMessage(MSG_INTERSTITIAL, EVENT_IMPRESSION);
+						}
+
+						@Override
+						public void onLeftApplication() {}
+
+						@Override
+						public void onReturnedToApplication() {}
+					});
+				}
+
 				AdRequest adRequest = new AdRequest.Builder().build();
-
-				mInterstitialAd.setInterstitialAdEventListener(new InterstitialAdEventListener() {
-					@Override
-					public void onAdLoaded() {
-						Log.d(TAG, "interstitial:onAdLoaded");
-						sendSimpleMessage(MSG_INTERSTITIAL, EVENT_LOADED);
-					}
-
-					@Override
-					public void onAdFailedToLoad(AdRequestError adRequestError) {
-						Log.e(TAG, "interstitial:onAdFailedToLoad" + adRequestError.toString());
-						sendSimpleMessage(MSG_INTERSTITIAL, EVENT_ERROR_LOAD, "error", adRequestError.toString());
-					}
-
-					@Override
-					public void onAdShown() {
-						Log.d(TAG, "interstitial:onAdShown");
-						sendSimpleMessage(MSG_INTERSTITIAL, EVENT_SHOWN);
-					}
-
-					@Override
-					public void onAdDismissed() {
-						Log.d(TAG, "interstitial:onAdDismissed");
-						sendSimpleMessage(MSG_INTERSTITIAL, EVENT_DISMISSED);
-					}
-
-					@Override
-					public void onAdClicked() {
-						Log.d(TAG, "interstitial:onAdClicked");
-						sendSimpleMessage(MSG_INTERSTITIAL, EVENT_CLICKED);
-					}
-
-					@Override
-					public void onImpression(@Nullable ImpressionData impressionData) {
-						Log.d(TAG, "interstitial:onImpression");
-						sendSimpleMessage(MSG_INTERSTITIAL, EVENT_IMPRESSION);
-					}
-
-					@Override
-					public void onLeftApplication() {}
-
-					@Override
-					public void onReturnedToApplication() {}
-
-				});
-
 				mInterstitialAd.loadAd(adRequest);
 			}
 		});
@@ -185,66 +191,73 @@ public class ExtensionYandexAds {
 	}
 
 // ------------------------------------------------------------------------------------------
-
+	private String lastRewardedId = "";
 	public void loadRewarded(final String unitId) {
 		activity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
 				Log.d(TAG, "loadRewarded");
-				mRewardedAd = new RewardedAd(activity);
-				mRewardedAd.setAdUnitId(unitId);
+				// если разные ид объявлений
+				if (!lastRewardedId.equals(unitId)){
+					lastRewardedId = unitId;
+					if (mRewardedAd != null)
+						mRewardedAd.destroy();
+					mRewardedAd = null;
+					mRewardedAd = new RewardedAd(activity);
+					mRewardedAd.setAdUnitId(unitId);
+
+					mRewardedAd.setRewardedAdEventListener(new RewardedAdEventListener() {
+						@Override
+						public void onRewarded(final Reward reward) {
+							Log.d(TAG, "rewarded:onRewarded");
+							sendSimpleMessage(MSG_REWARDED, EVENT_REWARDED);
+						}
+
+						@Override
+						public void onAdClicked() {
+							Log.d(TAG, "rewarded:onAdClicked");
+							sendSimpleMessage(MSG_REWARDED, EVENT_CLICKED);
+						}
+
+						@Override
+						public void onAdLoaded() {
+							Log.d(TAG, "rewarded:onAdLoaded");
+							sendSimpleMessage(MSG_REWARDED, EVENT_LOADED);
+						}
+
+						@Override
+						public void onAdFailedToLoad(final AdRequestError adRequestError) {
+							Log.e(TAG, "rewarded:onAdFailedToLoad" + adRequestError.toString());
+							sendSimpleMessage(MSG_REWARDED, EVENT_ERROR_LOAD, "error", adRequestError.toString());
+						}
+
+						@Override
+						public void onAdShown() {
+							Log.d(TAG, "rewarded:onAdShown");
+							sendSimpleMessage(MSG_REWARDED, EVENT_SHOWN);
+						}
+
+						@Override
+						public void onAdDismissed() {
+							Log.d(TAG, "rewarded:onAdDismissed");
+							sendSimpleMessage(MSG_REWARDED, EVENT_DISMISSED);
+						}
+
+						@Override
+						public void onImpression(@Nullable ImpressionData impressionData) {
+							Log.d(TAG, "rewarded:onImpression");
+							sendSimpleMessage(MSG_REWARDED, EVENT_IMPRESSION);
+						}
+
+						@Override
+						public void onLeftApplication() {}
+
+						@Override
+						public void onReturnedToApplication() {}
+					});
+				}
+
 				AdRequest adRequest = new AdRequest.Builder().build();
-
-				mRewardedAd.setRewardedAdEventListener(new RewardedAdEventListener() {
-					@Override
-					public void onRewarded(final Reward reward) {
-						Log.d(TAG, "rewarded:onRewarded");
-						sendSimpleMessage(MSG_REWARDED, EVENT_REWARDED);
-					}
-
-					@Override
-					public void onAdClicked() {
-						Log.d(TAG, "rewarded:onAdClicked");
-						sendSimpleMessage(MSG_REWARDED, EVENT_CLICKED);
-					}
-
-					@Override
-					public void onAdLoaded() {
-						Log.d(TAG, "rewarded:onAdLoaded");
-						sendSimpleMessage(MSG_REWARDED, EVENT_LOADED);
-					}
-
-					@Override
-					public void onAdFailedToLoad(final AdRequestError adRequestError) {
-						Log.e(TAG, "rewarded:onAdFailedToLoad" + adRequestError.toString());
-						sendSimpleMessage(MSG_REWARDED, EVENT_ERROR_LOAD, "error", adRequestError.toString());
-					}
-
-					@Override
-					public void onAdShown() {
-						Log.d(TAG, "rewarded:onAdShown");
-						sendSimpleMessage(MSG_REWARDED, EVENT_SHOWN);
-					}
-
-					@Override
-					public void onAdDismissed() {
-						Log.d(TAG, "rewarded:onAdDismissed");
-						sendSimpleMessage(MSG_REWARDED, EVENT_DISMISSED);
-					}
-
-					@Override
-					public void onImpression(@Nullable ImpressionData impressionData) {
-						Log.d(TAG, "rewarded:onImpression");
-						sendSimpleMessage(MSG_REWARDED, EVENT_IMPRESSION);
-					}
-
-					@Override
-					public void onLeftApplication() {}
-
-					@Override
-					public void onReturnedToApplication() {}
-				});
-				// Загрузка объявления.
 				mRewardedAd.loadAd(adRequest);
 			}
 		});
@@ -287,26 +300,21 @@ public class ExtensionYandexAds {
 			@Override
 			public void run() {
 				Log.d(TAG, "loadBanner");
-				if (isBannerLoaded()) {
+				if (isBannerLoaded())
 					_destroyBanner();
-				}
 
 				final BannerAdView view = new BannerAdView(activity);
 				view.setAdUnitId(unitId);
 				view.setAdSize(AdSize.flexibleSize(w, h));
-				//view.setAdSize(AdSize.stickySize(w));
-				view.setVisibility(View.INVISIBLE); //view.pause();
-				//view.setBackgroundColor(Color.GREEN); // debug
+				view.setVisibility(View.INVISIBLE);
+				mBannerAdView = view;
+				createLayout();
 
 				AdRequest adRequest = new AdRequest.Builder().build();
 				view.setBannerAdEventListener(new BannerAdEventListener() {
 					@Override
 					public void onAdLoaded() {
 						Log.d(TAG, "banner:onAdLoaded");
-						if (!isBannerLoaded()) {
-							mBannerAdView = view;
-							createLayout();
-						}
 						sendSimpleMessage(MSG_BANNER, EVENT_LOADED);
 					}
 
@@ -346,9 +354,9 @@ public class ExtensionYandexAds {
 
 	private void _destroyBanner() {
 		Log.d(TAG, "destroyBanner");
-		if (!isBannerLoaded()) {
+		if (!isBannerLoaded())
 			return;
-		}
+
 		if (isBannerShown && windowManager != null && layout != null) {
 			try {
 				windowManager.removeView(layout);
@@ -357,8 +365,8 @@ public class ExtensionYandexAds {
 			}
 		}
 		mBannerAdView.destroy();
-		layout = null;
 		mBannerAdView = null;
+		layout = null;
 		isBannerShown = false;
 		sendSimpleMessage(MSG_BANNER, EVENT_DESTROYED);
 	}
@@ -408,6 +416,8 @@ public class ExtensionYandexAds {
 				if (!isBannerLoaded()) {
 					return;
 				}
+				if (layout == null)
+					return;
 				layout.setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
 				int gravity = getGravity(pos);
 				if ( m_bannerPosition != gravity && isBannerShown) {
@@ -422,7 +432,7 @@ public class ExtensionYandexAds {
 				if (!layout.isShown()) {
 					m_bannerPosition = gravity;
 					windowManager.addView(layout, getParameters());
-					mBannerAdView.setVisibility(View.VISIBLE); //mBannerAdView.resume();
+					mBannerAdView.setVisibility(View.VISIBLE);
 					isBannerShown = true;
 				}
 			}
@@ -445,7 +455,7 @@ public class ExtensionYandexAds {
 						Log.e(TAG, "hideBanner: " + e);
 					}
 				}
-				mBannerAdView.setVisibility(View.INVISIBLE); //mBannerAdView.pause();
+				mBannerAdView.setVisibility(View.INVISIBLE);
 			}
 		});
 	}
@@ -486,18 +496,15 @@ public class ExtensionYandexAds {
 	}
 
 	private void createLayout() {
-		windowManager = activity.getWindowManager();
-		layout = new LinearLayout(activity);
-		layout.setOrientation(LinearLayout.VERTICAL);
-		MarginLayoutParams params = new MarginLayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-			LinearLayout.LayoutParams.MATCH_PARENT);
+		if (layout == null){
+			windowManager = activity.getWindowManager();
+			layout = new LinearLayout(activity);
+			layout.setOrientation(LinearLayout.VERTICAL);
+		}
+		MarginLayoutParams params = new MarginLayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 		params.setMargins(0, 0, 0, 0);
 		layout.setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
-
 		layout.addView(mBannerAdView, params);
-		//layout.setBackgroundColor(Color.BLUE); // debug
-		//mBannerAdView.setBackgroundColor(Color.YELLOW); // debug
-
 	}
 
 	private WindowManager.LayoutParams getParameters() {
