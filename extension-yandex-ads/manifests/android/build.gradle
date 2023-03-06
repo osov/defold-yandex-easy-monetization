@@ -20,7 +20,7 @@ dependencies {
     implementation 'com.yandex.ads.mediation:mobileads-applovin:11.6.0.0'
     implementation 'com.yandex.ads.mediation:mobileads-ironsource:7.2.4.1'
     implementation 'com.yandex.ads.mediation:mobileads-mintegral:16.3.11.0'
-    implementation 'com.yandex.ads.mediation:mobileads-pangle:4.8.1.0.0'
-    implementation 'com.my.target:mytarget-sdk:5.16.2'
+    //implementation 'com.yandex.ads.mediation:mobileads-pangle:4.8.1.0.0'
+    //implementation 'com.my.target:mytarget-sdk:5.16.2'
     implementation 'com.google.android.exoplayer:exoplayer:2.18.3'
 }
