@@ -14,7 +14,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.yandex.android:mobileads:5.9.0'
+    implementation 'com.yandex.android:mobileads:5.10.0'
     implementation 'com.yandex.ads.mediation:mobileads-admob:21.3.0.0'
     implementation 'com.yandex.ads.mediation:mobileads-unityads:4.4.1.1'
     implementation 'com.yandex.ads.mediation:mobileads-applovin:11.6.0.0'
