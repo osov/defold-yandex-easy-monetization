@@ -153,7 +153,8 @@ public class ExtensionYandexAds {
 						@Override
 						public void onImpression(@Nullable ImpressionData impressionData) {
 							Log.d(TAG, "interstitial:onImpression");
-							sendSimpleMessage(MSG_INTERSTITIAL, EVENT_IMPRESSION, "data", impressionData.getRawData());
+							if (impressionData != null)
+								sendSimpleMessage(MSG_INTERSTITIAL, EVENT_IMPRESSION, "data", impressionData.getRawData());
 						}
 
 						@Override
@@ -246,7 +247,8 @@ public class ExtensionYandexAds {
 						@Override
 						public void onImpression(@Nullable ImpressionData impressionData) {
 							Log.d(TAG, "rewarded:onImpression");
-							sendSimpleMessage(MSG_REWARDED, EVENT_IMPRESSION, "data", impressionData.getRawData());
+							if (impressionData != null)
+								sendSimpleMessage(MSG_REWARDED, EVENT_IMPRESSION, "data", impressionData.getRawData());
 						}
 
 						@Override
@@ -333,7 +335,8 @@ public class ExtensionYandexAds {
 					@Override
 					public void onImpression(@Nullable ImpressionData impressionData) {
 						Log.d(TAG, "banner:onImpression");
-						sendSimpleMessage(MSG_BANNER, EVENT_IMPRESSION, "data", impressionData.getRawData());
+						if (impressionData != null)
+							sendSimpleMessage(MSG_BANNER, EVENT_IMPRESSION, "data", impressionData.getRawData());
 					}
 
 					@Override
