@@ -120,7 +120,7 @@ public class ExtensionYandexAds {
 
             @Override
             public void onAdFailedToShow(@NonNull AdError adError) {
-                Log.d(TAG, "interstitial:onAdFailedToShow: "+adError.toString());
+                Log.d(TAG, "interstitial:onAdFailedToShow: "+adError);
                 sendSimpleMessage(MSG_INTERSTITIAL, EVENT_DISMISSED); // todo is failed
             }
 
@@ -148,7 +148,7 @@ public class ExtensionYandexAds {
 
     public void loadInterstitial(final String unitId) {
         activity.runOnUiThread(() -> {
-            Log.d(TAG, "loadInterstitial");
+            Log.d(TAG, "loadInterstitial: "+unitId);
             if (mInterstitialAdLoader != null) {
                 destroyInterstitial();
                 mInterstitialAdLoader.loadAd(new AdRequestConfiguration.Builder(unitId).build());
@@ -245,7 +245,7 @@ public class ExtensionYandexAds {
 
     public void loadRewarded(final String unitId) {
         activity.runOnUiThread(() -> {
-            Log.d(TAG, "loadRewarded");
+            Log.d(TAG, "loadRewarded: "+unitId);
             if (mRewardedAdLoader != null) {
                 destroyRewardedAd();
                 mRewardedAdLoader.loadAd(new AdRequestConfiguration.Builder(unitId).build());
@@ -322,7 +322,7 @@ public class ExtensionYandexAds {
 
     public void loadBanner(final String unitId, int bannerSize) {
         activity.runOnUiThread(() -> {
-            Log.d(TAG, "loadBanner");
+            Log.d(TAG, "loadBanner: "+unitId);
             if (isBannerLoaded())
                 _destroyBanner();
 
@@ -399,7 +399,7 @@ public class ExtensionYandexAds {
 
     public void showBanner(final int pos) {
         activity.runOnUiThread(() -> {
-            Log.d(TAG, "showBanner");
+            Log.d(TAG, "showBanner: "+pos);
             if (!isBannerLoaded()) {
                 return;
             }
@@ -445,6 +445,7 @@ public class ExtensionYandexAds {
 
     public void updateBannerLayout() {
         activity.runOnUiThread(() -> {
+            Log.d(TAG, "updateBannerLayout");
             if (!isBannerLoaded()) {
                 return;
             }
