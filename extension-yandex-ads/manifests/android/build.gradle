@@ -6,21 +6,20 @@ android {
 }
 
  repositories {
+ 	google()
  	mavenCentral()
     maven { url "https://android-sdk.is.com/" }
     maven { url "https://artifact.bytedance.com/repository/pangle" }
     maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"}
     maven { url "https://sdk.tapjoy.com/"}
+    maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' }
 }
 
 dependencies {
-    implementation 'com.yandex.android:mobileads:5.10.0'
-    implementation 'com.yandex.ads.mediation:mobileads-admob:21.3.0.0'
-    implementation 'com.yandex.ads.mediation:mobileads-unityads:4.4.1.1'
-    implementation 'com.yandex.ads.mediation:mobileads-applovin:11.6.0.0'
-    implementation 'com.yandex.ads.mediation:mobileads-ironsource:7.2.4.1'
-    implementation 'com.yandex.ads.mediation:mobileads-mintegral:16.4.11.0'
-    implementation 'com.yandex.ads.mediation:mobileads-mytarget:5.16.2.0'
-    implementation 'com.my.target:mytarget-sdk:5.16.2'
-    implementation 'com.google.android.exoplayer:exoplayer:2.18.5'
+    implementation 'com.yandex.android:mobileads:6.1.0'
+    implementation 'com.yandex.ads.mediation:mobileads-google:22.4.0.0'
+    implementation 'com.yandex.ads.mediation:mobileads-unityads:4.9.0.0'
+    implementation 'com.yandex.ads.mediation:mobileads-applovin:11.11.3.0'
+    implementation 'com.yandex.ads.mediation:mobileads-ironsource:7.5.1.0'
+    implementation 'com.yandex.ads.mediation:mobileads-mintegral:16.5.21.0'
 }
