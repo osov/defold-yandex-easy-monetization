@@ -1,0 +1,102 @@
+local druid = require("druid.druid")
+
+local MAX_LOG_LINES = 10
+
+--log logic
+local gprint = print
+local log = {}
+local text = ""
+_G.print = function(...)
+	gprint(...)
+	local args = {...}
+	local num = #log+1
+	log[num] = "--"
+	for k, v in pairs(args) do
+		log[num] = log[num] .. tostring(v) .. " "
+	end
+	log[num] = log[num] .. "\n"
+	text = ""
+	if num > MAX_LOG_LINES then
+		table.remove(log, 1)
+	end
+	for k, v in pairs(log) do
+		text = text .. v
+	end
+end
+
+local function listener(self, message_id, message)
+	local event = message.event
+	if message_id == yandexads.MSG_ADS_INITED then
+		print('MSG_ADS_INITED')
+	end
+	if message_id == yandexads.MSG_BANNER then
+		if event == yandexads.EVENT_LOADED then
+			print("MSG_BANNER EVENT_LOADED")
+		elseif event == yandexads.EVENT_ERROR_LOAD then
+			print("MSG_BANNER EVENT_ERROR_LOAD")
+		end
+	end
+
+	if message_id == yandexads.MSG_INTERSTITIAL then
+		if event == yandexads.EVENT_LOADED then
+			print("MSG_INTERSTITIAL EVENT_LOADED")
+		elseif event == yandexads.EVENT_ERROR_LOAD then
+			print("MSG_INTERSTITIAL EVENT_ERROR_LOAD")
+		end
+	end	
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	if yandexads then
+		yandexads.set_callback(listener)
+	end
+	
+	self.druid = druid.new(self)
+	self.druid:new_button("btn_clear", function() 
+		gui.set_text(gui.get_node('logs'), '')
+	end)
+	self.druid:new_button("btn_init", function() 
+		print('btn_init')
+		yandexads.initialize()
+	end)
+
+	
+
+	self.druid:new_button("btn_load_inter", function() 
+		print('btn_load_inter')
+		yandexads.load_interstitial("demo-interstitial-yandex")
+	end)
+	self.druid:new_button("btn_show_inter", function() 
+		print('btn_show_inter')
+		yandexads.show_interstitial()
+	end)
+
+	self.druid:new_button("btn_load_banner", function() 
+		print('btn_load_banner')
+		yandexads.load_banner('demo-banner-yandex')
+		yandexads.show_banner(5)
+	end)
+	self.druid:new_button("btn_destroy_banner", function() 
+		print('btn_destroy_banner')
+		yandexads.destroy_banner()
+	end)
+end
+
+
+function on_input(self, action_id, action)
+	self.druid:on_input(action_id, action)
+end
+
+function update(self, dt)
+	self.druid:update(dt)
+	gui.set_text(gui.get_node("logs"), text)
+end
+
+function on_message(self, message_id, message, sender)
+	self.druid:on_message(message_id, message, sender)
+end
+
+function final(self)
+	self.druid:final()
+end

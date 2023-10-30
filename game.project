@@ -1,29 +1,22 @@
-[project]
-title = YandexSdkAds
-version = 1.0
-
 [bootstrap]
 main_collection = /main/main.collectionc
-
-[input]
-game_binding = /input/game.input_bindingc
-
-[display]
-width = 720
-height = 1280
 
 [script]
 shared_state = 1
 
-[ios]
-bundle_identifier = com.yandex.ads
+[display]
+width = 540
+height = 960
+high_dpi = 1
 
 [android]
-package = com.yandex.ads
-immersive_mode = 1
-display_cutout = 0
+input_method = HiddenInputField
+package = com.yandex.demo
+minimum_sdk_version = 21
+manifest = /AndroidManifest.xml
 
+[project]
+title = YandexSDK
+dependencies#0 = https://github.com/osov/defold-yandex-easy-monetization/archive/refs/heads/main.zip
+dependencies#1 = https://github.com/Insality/druid/archive/refs/tags/0.10.2.zip
 
-
-[library]
-include_dirs = extension-yandex-ads
