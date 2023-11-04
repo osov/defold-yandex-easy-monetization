@@ -17,8 +17,7 @@ manifest = /AndroidManifest.xml
 
 [project]
 title = YandexSDK
-dependencies#0 = https://github.com/osov/defold-yandex-easy-monetization/archive/refs/heads/main.zip
-dependencies#1 = https://github.com/Insality/druid/archive/refs/tags/0.10.2.zip
+dependencies#0 = https://github.com/Insality/druid/archive/refs/tags/0.10.2.zip
 
 [library]
 include_dirs = extension-yandex-ads
