@@ -9,9 +9,9 @@
 namespace dmYandexAds {
 	enum MessageId {
 		MSG_ADS_INITED,
-		MSG_BANNER,
 		MSG_INTERSTITIAL,
-		MSG_REWARDED
+		MSG_REWARDED,
+		MSG_BANNER,
 	};
 
 	enum MessageEvent {
