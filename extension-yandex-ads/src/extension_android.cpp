@@ -116,7 +116,7 @@ namespace dmYandexAds
         g_app.m_IsRewardedLoaded = env->GetMethodID(cls, "isRewardedLoaded", "()Z");
         g_app.m_ShowRewarded = env->GetMethodID(cls, "showRewarded", "()V");
 
-        g_app.m_LoadBanner = env->GetMethodID(cls, "loadBanner", "(Ljava/lang/String;I;I;)V");
+        g_app.m_LoadBanner = env->GetMethodID(cls, "loadBanner", "(Ljava/lang/String;II)V");
         g_app.m_DestroyBanner = env->GetMethodID(cls, "destroyBanner", "()V");
         g_app.m_ShowBanner = env->GetMethodID(cls, "showBanner", "(I)V");
         g_app.m_HideBanner = env->GetMethodID(cls, "hideBanner", "()V");
