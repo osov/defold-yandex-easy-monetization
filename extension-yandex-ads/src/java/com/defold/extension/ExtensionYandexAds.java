@@ -89,6 +89,11 @@ public class ExtensionYandexAds {
         MobileAds.setUserConsent(enable_rdp);
     }
 
+      public void enableLogging() {
+        Log.d(TAG, "enableLogging");
+        MobileAds.enableLogging();
+    }
+
     // ------------------------------------------------------------------------------------------
     private InterstitialAdLoader mInterstitialAdLoader;
     private InterstitialAdEventListener mInterstitialAdEventListener;
@@ -320,15 +325,20 @@ public class ExtensionYandexAds {
         };
     }
 
-    public void loadBanner(final String unitId, int bannerSize) {
+    public void loadBanner(final String unitId, int width, int height) {
         activity.runOnUiThread(() -> {
-            Log.d(TAG, "loadBanner: "+unitId);
+            Log.d(TAG, "loadBanner: "+unitId+' '+width+'/'+height);
             if (isBannerLoaded())
                 _destroyBanner();
 
             final BannerAdView view = new BannerAdView(activity);
             view.setAdUnitId(unitId);
-            view.setAdSize(BannerAdSize.stickySize(activity, 320));
+            BannerAdSize adSize = BannerAdSize.inlineSize(activity, 320, 50);
+            if (width > 0 && height > 0) 
+                adSize = BannerAdSize.inlineSize(activity, width, height);
+            else if (width > 0)
+                adSize = BannerAdSize.stickySize(activity, width);
+            view.setAdSize(adSize);
             view.setVisibility(View.INVISIBLE);
             mBannerAdView = view;
             createLayout();

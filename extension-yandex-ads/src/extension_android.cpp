@@ -36,6 +36,7 @@ namespace dmYandexAds
         jmethodID m_HideBanner;
         jmethodID m_UpdateBannerLayout;
         jmethodID m_SetUserConsent;
+        jmethodID m_EnableLogging;
     };
 
     static App g_app;
@@ -77,6 +78,16 @@ namespace dmYandexAds
         env->DeleteLocalRef(jstr);
     }
 
+       static void CallVoidMethodCharIntInt(jobject instance, jmethodID method, const char *cstr, int cint, int cint2)
+    {
+        dmAndroid::ThreadAttacher threadAttacher;
+        JNIEnv *env = threadAttacher.GetEnv();
+
+        jstring jstr = env->NewStringUTF(cstr);
+        env->CallVoidMethod(instance, method, jstr, cint, cint2);
+        env->DeleteLocalRef(jstr);
+    }
+
     static void CallVoidMethodInt(jobject instance, jmethodID method, int cint)
     {
         dmAndroid::ThreadAttacher threadAttacher;
@@ -105,7 +116,7 @@ namespace dmYandexAds
         g_app.m_IsRewardedLoaded = env->GetMethodID(cls, "isRewardedLoaded", "()Z");
         g_app.m_ShowRewarded = env->GetMethodID(cls, "showRewarded", "()V");
 
-        g_app.m_LoadBanner = env->GetMethodID(cls, "loadBanner", "(Ljava/lang/String;I)V");
+        g_app.m_LoadBanner = env->GetMethodID(cls, "loadBanner", "(Ljava/lang/String;I;I)V");
         g_app.m_DestroyBanner = env->GetMethodID(cls, "destroyBanner", "()V");
         g_app.m_ShowBanner = env->GetMethodID(cls, "showBanner", "(I)V");
         g_app.m_HideBanner = env->GetMethodID(cls, "hideBanner", "()V");
@@ -113,6 +124,7 @@ namespace dmYandexAds
         g_app.m_UpdateBannerLayout= env->GetMethodID(cls, "updateBannerLayout", "()V");
 
         g_app.m_SetUserConsent = env->GetMethodID(cls, "setUserConsent", "(Z)V");
+        g_app.m_EnableLogging = env->GetMethodID(cls, "enableLogging", "()V");
 
     }
 
@@ -175,9 +187,9 @@ namespace dmYandexAds
 
     // ------------------------------------------------------------------------------------------
 
-    void LoadBanner(const char *unitId, BannerSize bannerSize)
+    void LoadBanner(const char *unitId, int width, int height)
     {
-        CallVoidMethodCharInt(g_app.m_AppJNI, g_app.m_LoadBanner, unitId, (int)bannerSize);
+        CallVoidMethodCharIntInt(g_app.m_AppJNI, g_app.m_LoadBanner, unitId, width, height);
     }
 
     void DestroyBanner()
@@ -203,6 +215,12 @@ namespace dmYandexAds
      void SetUserConsent(bool val)
     {
         CallVoidMethodInt(g_app.m_AppJNI, g_app.m_SetUserConsent, val);
+    }
+
+    
+     void EnableLogging()
+    {
+        CallVoidMethod(g_app.m_AppJNI, g_app.m_EnableLogging);
     }
     // ------------------------------------------------------------------------------------------
 

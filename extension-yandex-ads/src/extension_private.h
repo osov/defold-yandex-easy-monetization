@@ -1,47 +1,39 @@
-#if defined(DM_PLATFORM_ANDROID)
+#if defined(DM_PLATFORM_ANDROID) || defined(DM_PLATFORM_IOS)
 
 #pragma once
 
-namespace dmYandexAds
-{
+namespace dmYandexAds {
+	enum BannerPosition {
+		POS_NONE,
+		POS_TOP_LEFT,
+		POS_TOP_CENTER,
+		POS_TOP_RIGHT,
+		POS_BOTTOM_LEFT,
+		POS_BOTTOM_CENTER,
+		POS_BOTTOM_RIGHT,
+		POS_CENTER
+	};
 
-    enum BannerSize
-    {
-        BANNER_320_50 = 0
-    };
+	void Initialize_Ext();
+	void ActivateApp();
 
-    enum BannerPosition
-    {
-        POS_NONE =              0,
-        POS_TOP_LEFT =          1,
-        POS_TOP_CENTER =        2,
-        POS_TOP_RIGHT =         3,
-        POS_BOTTOM_LEFT =       4,
-        POS_BOTTOM_CENTER =     5,
-        POS_BOTTOM_RIGHT =      6,
-        POS_CENTER =            7
-    };
+	void Initialize();
+	void EnableLogging();
 
-    void Initialize_Ext();
-    void ActivateApp();
+	void LoadInterstitial(const char *unitId);
+	bool IsInterstitialLoaded();
+	void ShowInterstitial();
 
-    void Initialize();
+	void LoadRewarded(const char *unitId);
+	bool IsRewardedLoaded();
+	void ShowRewarded();
 
-    void LoadInterstitial(const char *unitId);
-    bool IsInterstitialLoaded();
-    void ShowInterstitial();
-
-    void LoadRewarded(const char *unitId);
-    bool IsRewardedLoaded();
-    void ShowRewarded();
-
-    void LoadBanner(const char *unitId, BannerSize bannerSize);
-    bool IsBannerLoaded();
-    void DestroyBanner();
-    void ShowBanner(BannerPosition bannerPos);
-    void HideBanner();
-    void SetUserConsent(bool val);
-
+	void LoadBanner(const char *unitId, int width, int height);
+	bool IsBannerLoaded();
+	void DestroyBanner();
+	void ShowBanner(BannerPosition bannerPos);
+	void HideBanner();
+	void SetUserConsent(bool val);
 }
 
 #endif
