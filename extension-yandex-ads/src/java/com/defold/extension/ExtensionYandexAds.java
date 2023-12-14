@@ -91,7 +91,7 @@ public class ExtensionYandexAds {
 
       public void enableLogging() {
         Log.d(TAG, "enableLogging");
-        MobileAds.enableLogging();
+        MobileAds.enableLogging(true);
     }
 
     // ------------------------------------------------------------------------------------------
