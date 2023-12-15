@@ -26,3 +26,7 @@ display_cutout = 0
 [library]
 include_dirs = extension-yandex-ads
 
+[yandex]
+app_id_ios=ca-app-pub-XX
+app_id_android=ca-app-pub-YY
+applovin_android=ZZ

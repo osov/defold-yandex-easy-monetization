@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd" [ <!ATTLIST key merge (keep) #IMPLIED> ]>
 <plist version="1.0">
 <dict>
+        <key>GADApplicationIdentifier</key>
+        <string>{{yandex.app_id_ios}}</string>
         <key>BuildMachineOSBuild</key>
         <string>19G73</string>
         <key>CFBundleDevelopmentRegion</key>
