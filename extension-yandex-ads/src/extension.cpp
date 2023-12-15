@@ -49,7 +49,7 @@ namespace dmYandexAds {
 		}
 		const char *unitId_lua = luaL_checkstring(L, 1);
 		int banner_width_lua = 0;
-		int banner_height_lua = -1;
+		int banner_height_lua = 0;
 		if (lua_type(L, 2) != LUA_TNONE) {
 			banner_width_lua = luaL_checkinteger(L, 2);
 		}
@@ -184,7 +184,6 @@ namespace dmYandexAds {
 		SETCONSTANT(EVENT_NOT_LOADED)
 		SETCONSTANT(EVENT_REWARDED)
 		SETCONSTANT(EVENT_DESTROYED)
-		SETCONSTANT(EVENT_COMPLETED)
 
 		SETCONSTANT(POS_NONE)
 		SETCONSTANT(POS_TOP_LEFT)

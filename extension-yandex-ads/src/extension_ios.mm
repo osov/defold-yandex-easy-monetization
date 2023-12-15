@@ -69,7 +69,7 @@ namespace dmYandexAds {
 		self.interstitialAdLoader.delegate = self;
 		self.rewardedAdLoader = [YMARewardedAdLoader new];
 		self.rewardedAdLoader.delegate = self;
-		SendSimpleMessage(MSG_ADS_INITED, EVENT_COMPLETED);
+		SendSimpleMessage(MSG_ADS_INITED, EVENT_LOADED);
 	}];
 
 	return self;
@@ -93,9 +93,9 @@ namespace dmYandexAds {
 
 	YMABannerAdSize *adSize = [YMABannerAdSize inlineSizeWithWidth:320 maxHeight:50];
 	if (width > 0 && height > 0) {
-		[YMABannerAdSize inlineSizeWithWidth:width maxHeight:height];
+		adSize = [YMABannerAdSize inlineSizeWithWidth:width maxHeight:height];
 	} else if (width > 0) {
-		[YMABannerAdSize stickySizeWithContainerWidth:width];
+		adSize = [YMABannerAdSize stickySizeWithContainerWidth:width];
 	}
 	self.adView = [[YMAAdView alloc] initWithAdUnitID:@(unitId) adSize:adSize];
 	self.adView.delegate = self;

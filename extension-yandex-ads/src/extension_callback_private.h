@@ -24,7 +24,6 @@ namespace dmYandexAds {
 		EVENT_NOT_LOADED,
 		EVENT_REWARDED,
 		EVENT_DESTROYED,
-		EVENT_COMPLETED
 	};
 
 	struct CallbackData {
