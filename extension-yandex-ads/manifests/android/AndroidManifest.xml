@@ -5,7 +5,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="{{yandex.app_id_ios}}"/>
+            android:value="{{yandex.app_id_android}}"/>
         <meta-data android:name="applovin.sdk.key"
             android:value="{{yandex.applovin_android}}"/>
 
