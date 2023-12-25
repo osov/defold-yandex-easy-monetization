@@ -26,7 +26,7 @@ end
 -- List ids for all platforms.
 local yandexads_ids = {
 	['iPhone OS'] = {
-		banner       = 'demo-banner-yandex',
+		banner       = 'R-M-4647371-1' -- 'demo-banner-yandex',
 		interstitial = 'demo-interstitial-yandex',
 		rewarded     = 'demo-rewarded-yandex'
 	},
