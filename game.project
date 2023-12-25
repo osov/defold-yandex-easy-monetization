@@ -17,6 +17,7 @@ shared_state = 1
 
 [ios]
 infoplist = /Info.plist
+bundle_identifier = sbGames.test
 
 [android]
 package = com.yandex.ads
@@ -27,6 +28,7 @@ display_cutout = 0
 include_dirs = extension-yandex-ads
 
 [yandex]
-app_id_ios=ca-app-pub-XX
-app_id_android=ca-app-pub-YY
-applovin_android=ZZ
+app_id_ios = ca-app-pub-XX
+app_id_android = ca-app-pub-YY
+applovin_android = ZZ
+

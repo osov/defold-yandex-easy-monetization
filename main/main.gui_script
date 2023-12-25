@@ -135,6 +135,10 @@ local function logs_pressed(self)
 	gui.set_enabled(gui.get_node('logs'), not gui.is_enabled(gui.get_node('logs')))
 end
 
+local function test_pressed(self)
+	sound.play('/go#sound')
+end
+
 -- GUI init
 function init(self)
 	msg.post('.', 'acquire_input_focus')    
@@ -184,7 +188,8 @@ local buttons = {
 
 	btn_enable_logging = enable_logging_pressed,
 	
-	btn_logs = logs_pressed
+	btn_logs = logs_pressed,
+	btn_test = test_pressed
 }
 
 function on_input(self, action_id, action)
