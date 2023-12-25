@@ -17,7 +17,7 @@ shared_state = 1
 
 [ios]
 infoplist = /Info.plist
-bundle_identifier = sbGames.chess
+bundle_identifier = sbGames.test
 
 [android]
 package = com.yandex.ads
