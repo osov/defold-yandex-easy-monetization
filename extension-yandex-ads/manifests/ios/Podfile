@@ -1,2 +1,2 @@
 platform :ios, '13.0'
-pod 'YandexMobileAdsMediation', '6.4.0'
+pod 'YandexMobileAdsMediation', '6.1.0'
