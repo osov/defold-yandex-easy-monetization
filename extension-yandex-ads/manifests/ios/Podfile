@@ -1,2 +1,3 @@
 platform :ios, '13.0'
 pod 'YandexMobileAds', '6.1.0'
+pod 'AppLovinYandexMobileAdsAdapters', '11.11.3.1'
