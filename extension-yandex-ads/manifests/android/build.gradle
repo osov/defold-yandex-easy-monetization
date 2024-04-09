@@ -27,6 +27,5 @@ dependencies {
     implementation 'com.yandex.ads.mediation:mobileads-bigoads:4.6.1.0'
     implementation 'com.yandex.ads.mediation:mobileads-vungle:7.1.0.1'
     implementation 'com.yandex.ads.mediation:mobileads-mytarget:5.20.1.0'
-    implementation 'com.my.tracker:mytracker-sdk:3.0.0'
-    //implementation 'com.android.billingclient:billing:5.0.0'
+    //implementation 'com.my.tracker:mytracker-sdk:3.0.0'
 }
