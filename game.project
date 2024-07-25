@@ -23,6 +23,7 @@ bundle_identifier = sbGames.test
 package = com.yandex.ads
 immersive_mode = 1
 display_cutout = 0
+minimum_sdk_version = 21
 
 [library]
 include_dirs = extension-yandex-ads

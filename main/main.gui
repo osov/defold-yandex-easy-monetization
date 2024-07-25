@@ -1,7 +1,7 @@
 script: "/main/main.gui_script"
 fonts {
   name: "system_font"
-  font: "/builtins/fonts/system_font.font"
+  font: "/main/font.font"
 }
 textures {
   name: "button_tex"
