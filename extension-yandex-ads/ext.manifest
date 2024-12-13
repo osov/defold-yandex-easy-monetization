@@ -4,3 +4,9 @@ platforms:
     android:
         context:
             aaptExtraPackages: ['com.yandex.android', 'com.yandex.android.mobileads', 'com.yandex.mobile', 'com.yandex.mobile.ads', 'com.yandex.mobile.ads.imp', 'androidx.viewpager2', 'androidx.annotation', 'androidx.core', 'androidx.recyclerview', 'androidx.appcompat', 'androidx.transition', 'androidx.collection', 'androidx.appcompat.resources']
+
+    ios:
+        context:
+            flags: ['-fcxx-modules', '-fmodules', '-fobjc-weak', '-Wno-module-import-in-extern-c']
+            linkFlags:  ['-ObjC', '-Wl,-rpath,/usr/lib/swift', '-Wl,-rpath,@executable_path/Frameworks']
+            libs:       ['swiftCompatibility51', 'swiftCompatibility50']
