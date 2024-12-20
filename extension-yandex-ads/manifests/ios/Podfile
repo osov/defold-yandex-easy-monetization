@@ -1,7 +1,9 @@
 platform :ios, '13.0'
-pod 'YandexMobileAds', '7.2.0'
-#pod 'YandexMobileAdsAdMobAdapters'
-#pod 'AppLovinYandexMobileAdsAdapters'
-#pod 'IronSourceYandexMobileAdsAdapters'
-#pod 'MintegralYandexMobileAdsAdapters'
-#pod 'MyTargetYandexMobileAdsAdapters'
+pod 'YandexMobileAds'
+#pod 'GoogleYandexMobileAdsAdapters' -- not build
+#pod 'UnityYandexMobileAdsAdapters', '4.9.0.0' Unable to find a specification for `UnityYandexMobileAdsAdapters (= 4.9.0.0)`
+pod 'AppLovinYandexMobileAdsAdapters'
+pod 'IronSourceYandexMobileAdsAdapters'
+pod 'MintegralYandexMobileAdsAdapters'
+pod 'MyTargetYandexMobileAdsAdapters'
+#pod 'BigoADSYandexMobileAdsAdapters', '4.0.4.0' OMSDK_Bigosg.framework/OMSDK_Bigosg' (no such file)
