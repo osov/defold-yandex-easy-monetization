@@ -1,5 +1,5 @@
 platform :ios, '13.0'
-pod 'YandexMobileAds'
+pod 'YandexMobileAds', '7.6.0'
 #pod 'GoogleYandexMobileAdsAdapters' -- not build
 #pod 'UnityYandexMobileAdsAdapters', '4.9.0.0' Unable to find a specification for `UnityYandexMobileAdsAdapters (= 4.9.0.0)`
 pod 'AppLovinYandexMobileAdsAdapters'
