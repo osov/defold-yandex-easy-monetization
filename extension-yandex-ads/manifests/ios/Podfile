@@ -7,4 +7,3 @@ pod 'IronSourceYandexMobileAdsAdapters'
 pod 'MintegralYandexMobileAdsAdapters'
 pod 'MyTargetYandexMobileAdsAdapters'
 #pod 'BigoADSYandexMobileAdsAdapters', '4.0.4.0' OMSDK_Bigosg.framework/OMSDK_Bigosg' (no such file)
-pod 'YandexMobileAdsMediationExtras'
