@@ -6,8 +6,8 @@ pod 'AppLovinYandexMobileAdsAdapters'
 pod 'IronSourceYandexMobileAdsAdapters'
 pod 'MintegralYandexMobileAdsAdapters'
 pod 'MyTargetYandexMobileAdsAdapters'
-pod 'VungleYandexMobileAdsAdapters'
-#pod 'BigoADSYandexMobileAdsAdapters'
+#pod 'VungleYandexMobileAdsAdapters'
+pod 'BigoADSYandexMobileAdsAdapters'
 #pod 'YandexMobileAdsMediationExtras' # с ним не хочет
 
 
