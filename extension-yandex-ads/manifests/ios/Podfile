@@ -7,7 +7,7 @@ pod 'IronSourceYandexMobileAdsAdapters'
 pod 'MintegralYandexMobileAdsAdapters'
 pod 'MyTargetYandexMobileAdsAdapters'
 pod 'VungleYandexMobileAdsAdapters'
-pod 'BigoADSYandexMobileAdsAdapters'
+#pod 'BigoADSYandexMobileAdsAdapters'
 #pod 'YandexMobileAdsMediationExtras' # с ним не хочет
 
 
