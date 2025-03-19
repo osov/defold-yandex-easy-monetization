@@ -1,13 +1,13 @@
 platform :ios, '13.0'
 pod 'YandexMobileAds', '7.11.1'
 pod 'GoogleYandexMobileAdsAdapters'
-#pod 'UnityYandexMobileAdsAdapters'
+pod 'UnityAdsYandexMobileAdsAdapters'
 pod 'AppLovinYandexMobileAdsAdapters'
 pod 'IronSourceYandexMobileAdsAdapters'
 pod 'MintegralYandexMobileAdsAdapters'
 pod 'MyTargetYandexMobileAdsAdapters'
-#pod 'VungleYandexMobileAdsAdapters'
+#pod 'VungleYandexMobileAdsAdapters' # not work
 pod 'BigoADSYandexMobileAdsAdapters'
-#pod 'YandexMobileAdsMediationExtras' # с ним не хочет
+#pod 'YandexMobileAdsMediationExtras' # not work
 
 
