@@ -29,7 +29,7 @@ minimum_sdk_version = 21
 include_dirs = extension-yandex-ads
 
 [yandex]
-app_id_ios = ca-app-pub-XX
-app_id_android = ca-app-pub-YY
+app_id_ios = ca-app-pub-9966962268328280~8075182555
+app_id_android = ca-app-pub-9966962268328280~8075182555
 applovin_android = ZZ
 
