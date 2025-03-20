@@ -18,10 +18,10 @@ android {
 
 dependencies {
     implementation 'com.yandex.android:mobileads:7.11.0' // huawei
-    implementation 'com.yandex.ads.mediation:mobileads-google:23.5.0.3'
-    implementation 'com.yandex.ads.mediation:mobileads-unityads:4.12.5.3'
+    //implementation 'com.yandex.ads.mediation:mobileads-google:23.5.0.3'
+    //implementation 'com.yandex.ads.mediation:mobileads-unityads:4.12.5.3'
     implementation 'com.yandex.ads.mediation:mobileads-applovin:12.6.0.8' // huawei
-    implementation 'com.yandex.ads.mediation:mobileads-ironsource:8.5.0.2'
+    //implementation 'com.yandex.ads.mediation:mobileads-ironsource:8.5.0.2'
     implementation 'com.yandex.ads.mediation:mobileads-mintegral:16.8.61.5' // huawei
     implementation 'com.yandex.ads.mediation:mobileads-bigoads:5.0.2.3' // huawei
     implementation 'com.yandex.ads.mediation:mobileads-vungle:7.4.2.3' // huawei
