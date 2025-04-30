@@ -6,8 +6,8 @@ pod 'AppLovinYandexMobileAdsAdapters'
 pod 'IronSourceYandexMobileAdsAdapters'
 pod 'MintegralYandexMobileAdsAdapters'
 pod 'MyTargetYandexMobileAdsAdapters'
-pod 'VungleYandexMobileAdsAdapters' # test
+pod 'VungleYandexMobileAdsAdapters'
 pod 'BigoADSYandexMobileAdsAdapters'
-pod 'YandexMobileAdsMediationExtras' # test
+pod 'YandexMobileAdsMediationExtras'
 
 
