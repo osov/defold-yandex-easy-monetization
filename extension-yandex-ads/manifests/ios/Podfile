@@ -8,6 +8,6 @@ pod 'MintegralYandexMobileAdsAdapters'
 pod 'MyTargetYandexMobileAdsAdapters'
 pod 'VungleYandexMobileAdsAdapters' # test
 pod 'BigoADSYandexMobileAdsAdapters'
-pod 'YandexMobileAdsMediationExtras' # test
+#pod 'YandexMobileAdsMediationExtras' # not work
 
 
