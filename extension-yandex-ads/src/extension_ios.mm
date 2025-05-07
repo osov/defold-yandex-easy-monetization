@@ -31,6 +31,8 @@ namespace dmYandexAds {
 	}
 }
 
+#define ExtensionInterface Extension_yandexads_Interface
+
 @interface ExtensionInterface : NSObject <
 	YMAAdViewDelegate,
 	YMAInterstitialAdLoaderDelegate,
